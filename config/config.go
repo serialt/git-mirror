@@ -46,7 +46,7 @@ type GitLog struct {
 type MyConfig struct {
 	GitLog     GitLog   `yaml:"gitLog"`
 	GiteeToken string   `yaml:"giteeToken"`
-	GitRepo    []string `yaml:"gitRepo"`
+	GithubRepo []string `yaml:"githubRepo"`
 }
 
 var Config *MyConfig

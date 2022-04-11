@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	flag "github.com/spf13/pflag"
 
@@ -92,10 +93,16 @@ func main() {
 
 	// pkg.Sugar.Info(config.LogFile)
 	client := &service.GiteeClient{
-		AccessToken: "4909e77545e6d5f891ce9a8e9b6697ea",
+		AccessToken: config.Config.GiteeToken,
+	}
+	for _, v := range config.Config.GithubRepo {
+		repo := strings.Split(v, "/")
+		_, _ = client.GiteeCreateRepo(repo[1], false)
+		service.CloneRepo("https://github.com/"+v, "/tmp/mac_mirror/"+repo[1])
+		service.MirrorRepo("/tmp/mac_mirror/"+repo[1], "gitee", "git@gitee.com:serialt/"+repo[1])
 	}
 	_, _ = client.GiteeCreateRepo("go-gitee5", false)
 	// fmt.Printf("resp: %v\n", resp)
 	// fmt.Printf("err: %v\n", err)
-	service.CloneRepo("https://github.com/serialt/sugar", "/Users/serialt/Desktop/flkj/tmp/gitee")
+
 }
