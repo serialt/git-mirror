@@ -10,8 +10,8 @@ gitLog:
   logLevel: debug
 workspace: /tmp/mac_mirror
 gitee:
- user: xxxxx
- token: xxxxxxxxxxx
+  user: xxxxx
+  token: xxxxxxxxxxx
 githubRepo:
   - melbahja/goph
 ```
