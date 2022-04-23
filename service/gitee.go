@@ -7,7 +7,7 @@ import (
 
 var LogSugar *zap.SugaredLogger
 
-func (c *GiteeClient) GiteeCreateRepo(repo string, private bool, description string) (resp gorequest.Response, err []error) {
+func (c *GiteeClient) GiteeCreateRepo(repo string, private string, description string) (resp gorequest.Response, err []error) {
 	url := "https://gitee.com/api/v5/user/repos"
 
 	formData := map[string]string{
@@ -17,6 +17,7 @@ func (c *GiteeClient) GiteeCreateRepo(repo string, private bool, description str
 		"has_wiki":     "true",
 		"can_comment":  "true",
 		"description":  description,
+		"private":      private,
 		"path":         repo,
 	}
 
