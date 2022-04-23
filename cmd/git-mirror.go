@@ -89,7 +89,7 @@ func main() {
 	for _, v := range config.Config.GithubRepo {
 		repo := strings.Split(v, "/")
 		description := fmt.Sprintf("forked from github/%s", v)
-		_, _ = client.GiteeCreateRepo(repo[1], false, description)
+		_, _ = client.GiteeCreateRepo(repo[1], config.Config.Gitee.Private, description)
 		service.CloneRepo("https://github.com/"+v, config.Config.Workspace+"/"+repo[1])
 		service.MirrorRepo(config.Config.Workspace+"/"+repo[1], "gitee", "git@gitee.com:"+config.Config.Gitee.User+"/"+repo[1])
 	}

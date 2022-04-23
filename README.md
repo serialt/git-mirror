@@ -12,6 +12,7 @@ workspace: /tmp/mac_mirror
 gitee:
   user: xxxxx
   token: xxxxxxxxxxx
+  private: false 
 githubRepo:
   - melbahja/goph
 ```

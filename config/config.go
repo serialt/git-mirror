@@ -44,8 +44,9 @@ type GitLog struct {
 }
 
 type Gitee struct {
-	User  string `yaml:"user"`
-	Token string `yaml:"token"`
+	User    string `yaml:"user"`
+	Token   string `yaml:"token"`
+	Private bool   `yaml:"private"`
 }
 type MyConfig struct {
 	GitLog     GitLog   `yaml:"gitLog"`
