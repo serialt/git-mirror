@@ -65,15 +65,6 @@ func GitInit() {
 	config.LogSugar = config.Logger.Sugar()
 	service.LogSugar = config.Logger.Sugar()
 
-	// mydb := &sugar.Database{
-	// 	Type:     config.Config.Database.Type,
-	// 	Addr:     config.Config.Database.Addr,
-	// 	Port:     config.Config.Database.Port,
-	// 	DBName:   config.Config.Database.DBName,
-	// 	Username: config.Config.Database.Username,
-	// 	Password: config.Config.Database.Password,
-	// }
-	// config.DB = mydb.NewDBConnect(config.Logger)
 }
 
 func main() {
@@ -93,16 +84,14 @@ func main() {
 
 	// pkg.Sugar.Info(config.LogFile)
 	client := &service.GiteeClient{
-		AccessToken: config.Config.GiteeToken,
+		AccessToken: config.Config.Gitee.Token,
 	}
 	for _, v := range config.Config.GithubRepo {
 		repo := strings.Split(v, "/")
-		_, _ = client.GiteeCreateRepo(repo[1], false)
-		service.CloneRepo("https://github.com/"+v, "/tmp/mac_mirror/"+repo[1])
-		service.MirrorRepo("/tmp/mac_mirror/"+repo[1], "gitee", "git@gitee.com:serialt/"+repo[1])
+		description := fmt.Sprintf("forked from github/%s", v)
+		_, _ = client.GiteeCreateRepo(repo[1], false, description)
+		service.CloneRepo("https://github.com/"+v, config.Config.Workspace+"/"+repo[1])
+		service.MirrorRepo(config.Config.Workspace+"/"+repo[1], "gitee", "git@gitee.com:"+config.Config.Gitee.User+"/"+repo[1])
 	}
-	_, _ = client.GiteeCreateRepo("go-gitee5", false)
-	// fmt.Printf("resp: %v\n", resp)
-	// fmt.Printf("err: %v\n", err)
 
 }

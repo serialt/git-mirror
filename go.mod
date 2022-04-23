@@ -6,6 +6,7 @@ require (
 	github.com/go-git/go-git/v5 v5.4.2
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/parnurzeal/gorequest v0.2.16
+	github.com/serialt/gopkg v0.0.8
 	github.com/serialt/sugar v0.0.9
 	github.com/spf13/pflag v1.0.5
 	go.uber.org/zap v1.21.0
@@ -35,6 +36,8 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/kevinburke/ssh_config v0.0.0-20201106050909-4977a11b4351 // indirect
+	github.com/mattn/go-isatty v0.0.14 // indirect
+	github.com/mozillazg/go-pinyin v0.19.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/sergi/go-diff v1.1.0 // indirect
 	github.com/smartystreets/goconvey v1.7.2 // indirect
@@ -43,7 +46,7 @@ require (
 	go.uber.org/multierr v1.7.0 // indirect
 	golang.org/x/crypto v0.0.0-20210921155107-089bfa567519 // indirect
 	golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4 // indirect
-	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
+	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect

@@ -43,10 +43,15 @@ type GitLog struct {
 	// LogCompress   bool   // 压缩轮转的日志
 }
 
+type Gitee struct {
+	User  string `yaml:"user"`
+	Token string `yaml:"token"`
+}
 type MyConfig struct {
 	GitLog     GitLog   `yaml:"gitLog"`
-	GiteeToken string   `yaml:"giteeToken"`
+	Gitee      Gitee    `yaml:"gitee"`
 	GithubRepo []string `yaml:"githubRepo"`
+	Workspace  string   `yaml:"workspace"`
 }
 
 var Config *MyConfig
